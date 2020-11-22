@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="chatbot-docs">Chatbot Docs</h1>
+<h2 id="sample-chatbot">Sample Chatbot</h2>
+<p>You can find a sample chatbot at <a href="https://chatbot-api-fiverr-sample.herokuapp.com/">https://chatbot-api-fiverr-sample.herokuapp.com/</a></p>
+<h2 id="how-to-add-questions-and-answers-to-the-chatbot">How to add questions and answers to the Chatbot</h2>
+<h3 id="where-to-add-the-questions-and-answers">Where to add the questions and answers?</h3>
+<p>After purchasing the chatbot you will be given an <code>intents.json</code> file where you can add/edit questions and answers.</p>
+<h3 id="how-does-the-intents.json-file-work">How does the <code>intents.json</code> file work?</h3>
+<p>After opening the file it should look something like this:</p>
+<p><code>intents.json</code></p>
+<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"intents"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"tag"</span><span class="token punctuation">:</span> <span class="token string">"timing"</span><span class="token punctuation">,</span>
+            <span class="token string">"patterns"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"What time are you open?"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"responses"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"We are open 24/7"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"context_set"</span><span class="token punctuation">:</span> <span class="token string">""</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>All the intents are inside the intents list (<code>"intents: []"</code>) and each of the are dictionaries contains the following values:</p>
+<ul>
+<li><code>"tag"</code> - The tag is like what the question is about. In the above example you can see 		the tag is <code>"timing"</code> because the question is about the timing</li>
+<li><code>"patterns"</code> - The patterns is a list of questions the user may ask to trigger this intent to be used</li>
+<li><code>"responses"</code> - The responses is a list of answers that will be shown. If there is more than 1 response in the <code>"responses"</code> list than any one will be choose randomly</li>
+<li><code>"context_set"</code> - The context set is necessary for the chatbot when being trained. It can be blank</li>
+</ul>
+<h3 id="how-to-add-the-questions-and-answer">How to add the questions and answer?</h3>
+<ol>
+<li>
+<p>First you will have to open up the <code>intents.json</code> file</p>
+</li>
+<li>
+<p>After opening the file it should look something like this:</p>
+<p><code>intents.json</code></p>
+<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"intents"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"tag"</span><span class="token punctuation">:</span> <span class="token string">"timing"</span><span class="token punctuation">,</span>
+            <span class="token string">"patterns"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"What time are you open?"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"responses"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"We are open 24/7"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"context_set"</span><span class="token punctuation">:</span> <span class="token string">""</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p>Add another dictionary to the <code>"intents"</code> list</p>
+</li>
+<li>
+<p>After adding a new dictionary it will look something like this:</p>
+<p><code>intents.json</code></p>
+<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"intents"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"tag"</span><span class="token punctuation">:</span> <span class="token string">"timing"</span><span class="token punctuation">,</span>
+            <span class="token string">"patterns"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"What time are you open?"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"responses"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"We are open 24/7"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"context_set"</span><span class="token punctuation">:</span> <span class="token string">""</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+	        <span class="token string">"tag"</span><span class="token punctuation">:</span> <span class="token string">"location"</span><span class="token punctuation">,</span>
+	        <span class="token string">"patterns"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+		        <span class="token string">"Where are you located?"</span><span class="token punctuation">,</span>
+	        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+	        <span class="token string">"responses"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+		        <span class="token string">"We are located in Tokyo, Japan"</span><span class="token punctuation">,</span>
+	        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+	        <span class="token string">"context_set"</span><span class="token punctuation">:</span> <span class="token string">""</span>
+	    <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p>Save the file</p>
+</li>
+</ol>
+<h3 id="how-to-edit-questions-and-answers">How to edit questions and answers?</h3>
+<ol>
+<li>
+<p>First you will have to open up the <code>intents.json</code> file</p>
+</li>
+<li>
+<p>After opening the file it should look something like this:</p>
+<p><code>intents.json</code></p>
+<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"intents"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"tag"</span><span class="token punctuation">:</span> <span class="token string">"timing"</span><span class="token punctuation">,</span>
+            <span class="token string">"patterns"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"What time are you open?"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"responses"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"We are open 24/7"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"context_set"</span><span class="token punctuation">:</span> <span class="token string">""</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p>Change the <code>"patterns"</code> or <code>"responses"</code> (in this case we would like to change <code>"We are open 24/7"</code>)</p>
+</li>
+<li>
+<p>After changing <code>"We are open 24/7"</code> to <code>"We are open Monday to Friday 8AM - 10PM"</code> it will look something like this:</p>
+<p><code>intents.json</code></p>
+<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+    <span class="token string">"intents"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">"tag"</span><span class="token punctuation">:</span> <span class="token string">"timing"</span><span class="token punctuation">,</span>
+            <span class="token string">"patterns"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"What time are you open?"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"responses"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"We are open Monday to Friday 8AM - 10PM"</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">"context_set"</span><span class="token punctuation">:</span> <span class="token string">""</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p>Save the file</p>
+</li>
+</ol>
+<h2 id="what-features-does-the-chatbot-include">What features does the chatbot include?</h2>
+<p>Features that the chatbot include are:</p>
+<ul>
+<li>
+<p>The Chatbot is an API</p>
+</li>
+<li>
+<p>It can be integrated with the website (sample at <a href="https://chatbot-api-fiverr-sample.herokuapp.com/">https://chatbot-api-fiverr-sample.herokuapp.com/</a>)</p>
+</li>
+<li>
+<p>It request other API’s</p>
+</li>
+<li>
+<p>The questions and answers are easily customizable</p>
+</li>
+</ul>
+</div>
+</body>
+
+</html>
